@@ -18,7 +18,7 @@ op = input("Enter operation (+, -, *, /): ")
 num2 = int(input("Enter second number: "))
 
 result = calculator(num1, op, num2)
-print("Result:", result)
+print("Output:", result)
 
     
 
