@@ -27,3 +27,18 @@ def test_divError():
 def test_InvalidInput():
   with pytest.raises(TypeError):
     add("a",4)
+
+# import unittest
+# from calculator import calculator
+# class test_Calculator(unittest.TestCase):
+#     def test_add(self):
+#         self.assertEqual(calculator(1,'+',1),2)
+#     def test_sub(self):
+#         self.assertEqual(calculator(5, '-',3),2)
+#     def test_mul(self):
+#         self.assertEqual(calculator(4,'*',5),20)
+#     def test_div(self):
+#         self.assertEqual(calculator(10,'/',2),5)
+
+# if __name__ == '__main__':
+#     unittest.main()
