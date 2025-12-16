@@ -1,8 +1,3 @@
-"""
-Unit Tests for School Management System
-Tests core business logic for students, teachers, and performance tracking
-"""
-
 import unittest
 from unittest.mock import patch, MagicMock
 import ERP_pyodbc as db

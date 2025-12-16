@@ -5,6 +5,7 @@ A comprehensive Python-based School Management System built with Tkinter GUI, SQ
 ## Features
 
 ### Core Functionality
+
 - **Student Management**: Register, update, delete, and manage students
 - **Teacher Management**: Add and manage teachers with subjects
 - **Attendance Tracking**: Record and track student attendance
@@ -14,17 +15,20 @@ A comprehensive Python-based School Management System built with Tkinter GUI, SQ
 - **Report Generation**: Comprehensive performance reports for students
 
 ### Authentication & Security
+
 - Student login system with password protection
 - Admin panel with secure authentication (password: `admin123`)
 - Role-based access control
 
 ### User Interface
+
 - Modern Tkinter-based GUI
 - Intuitive navigation between screens
 - Multiple views for students, teachers, and administrators
 - Tree view displays for data management
 
 ### Database
+
 - SQL Server integration using pyodbc
 - Normalized database schema with proper relationships
 - Cascade delete to maintain referential integrity
@@ -54,6 +58,7 @@ ERP_Portal/
 ## Installation & Setup
 
 ### Prerequisites
+
 - Python 3.8 or higher
 - SQL Server with ODBC Driver 17
 - pip (Python package manager)
@@ -61,17 +66,20 @@ ERP_Portal/
 ### Steps
 
 1. **Clone the Repository**
+
    ```bash
    git clone https://github.com/mmubashirdev/python.git
    cd python/ERP_Portal
    ```
 
 2. **Install Dependencies**
+
    ```bash
    pip install pyodbc
    ```
 
 3. **Configure Database Connection**
+
    - Ensure SQL Server is running with ODBC Driver 17
    - Update connection string in `ERP_pyodbc.py` if needed:
      ```python
@@ -86,6 +94,7 @@ ERP_Portal/
 ## Usage
 
 ### Student Features
+
 - **Login**: Use registered credentials
 - **View Performance**: See academic records with marks and grades
 - **View Attendance**: Check attendance history
@@ -93,6 +102,7 @@ ERP_Portal/
 - **Generate Report**: Download comprehensive performance report
 
 ### Admin Features
+
 - **Admin Password**: `admin123`
 - **Manage Students**: Add, view, delete students
 - **Manage Teachers**: Add, view, delete teachers
@@ -101,6 +111,7 @@ ERP_Portal/
 - **Manage Performance**: Record student performance
 
 ### Grading System
+
 - **A**: 90-100 marks
 - **B**: 80-89 marks
 - **C**: 70-79 marks
@@ -112,29 +123,34 @@ ERP_Portal/
 ### Tables
 
 #### Students
+
 - id (Primary Key)
 - name (NVARCHAR)
 - grade (NVARCHAR)
 - password (NVARCHAR)
 
 #### Teachers
+
 - id (Primary Key)
 - name (NVARCHAR)
 - subject (NVARCHAR)
 
 #### Attendance
+
 - id (Primary Key)
 - student_id (Foreign Key)
 - date (DATE)
 - status (Present/Absent)
 
 #### Fees
+
 - id (Primary Key)
 - student_id (Foreign Key)
 - amount (DECIMAL)
 - status (Paid/Pending)
 
 #### Performance
+
 - id (Primary Key)
 - student_id (Foreign Key)
 - subject (NVARCHAR)
@@ -143,11 +159,13 @@ ERP_Portal/
 ## Testing
 
 Run unit tests with:
+
 ```bash
 python -m unittest unitTestStud.py
 ```
 
 ### Test Coverage
+
 - Student CRUD operations
 - Teacher management
 - Performance tracking and GPA calculation
@@ -170,6 +188,7 @@ python -m unittest unitTestStud.py
 ## Key Functions
 
 ### Database Layer (ERP_pyodbc.py)
+
 - `get_con()`: Establish database connection
 - `init_db()`: Initialize database
 - `create_tables()`: Create all necessary tables
@@ -177,6 +196,7 @@ python -m unittest unitTestStud.py
 - `get_performance_report()`: Generate comprehensive report
 
 ### Models Layer (models.py)
+
 - `Student.verify_login()`: Authenticate student
 - `Performance.get_grade()`: Get letter grade from marks
 - `School.generate_performance_report()`: Create detailed report
@@ -184,17 +204,20 @@ python -m unittest unitTestStud.py
 ## Screenshots
 
 ### Login Screen
+
 - Student login with name and password
 - New student registration
 - Admin access option
 
 ### Student Dashboard
+
 - View academic performance
 - Check attendance records
 - Monitor fee payments
 - Generate comprehensive report
 
 ### Admin Dashboard
+
 - Complete CRUD operations for all entities
 - Attendance recording
 - Fee management
@@ -220,11 +243,13 @@ python -m unittest unitTestStud.py
 ## Git Commits
 
 ### Commit 1: Initial Setup
+
 - Created project structure
 - Implemented database layer with CRUD operations
 - Created OOP models
 
 ### Commit 2: GUI and Features Implementation
+
 - Developed comprehensive Tkinter GUI
 - Implemented all management features
 - Added unit tests
@@ -233,15 +258,18 @@ python -m unittest unitTestStud.py
 ## Troubleshooting
 
 ### Database Connection Issues
+
 - Verify SQL Server is running
 - Check ODBC Driver 17 installation
 - Update server name in connection string
 
 ### Import Errors
+
 - Ensure all files are in the same directory
 - Install pyodbc: `pip install pyodbc`
 
 ### GUI Issues
+
 - Use Python 3.8 or higher
 - Ensure Tkinter is installed with Python
 
@@ -260,6 +288,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Author
 
 **Mubashir Dev**
+
 - GitHub: [@mmubashirdev](https://github.com/mmubashirdev)
 - Repository: [python](https://github.com/mmubashirdev/python)
 

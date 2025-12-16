@@ -1,14 +1,8 @@
-"""
-Object-Oriented Models for School Management System
-This module defines the core classes for managing students, teachers, and performance
-"""
-
 import ERP_pyodbc as db
 from datetime import datetime
 
 
 class Student:
-    """Class to represent a Student"""
     
     def __init__(self, name, grade, password, student_id=None):
         self.id = student_id
@@ -17,23 +11,20 @@ class Student:
         self.password = password
     
     def save(self):
-        """Save student to database"""
+
         if self.id is None:
             db.add_student(self.name, self.grade, self.password)
         else:
             db.update_student(self.id, self.name, self.grade, self.password)
     
     def delete(self):
-        """Delete student from database"""
         if self.id:
             db.delete_student(self.id)
     
     def get_gpa(self):
-        """Get student's GPA"""
         return db.calculate_student_gpa(self.id)
     
     def get_attendance(self):
-        """Get student's attendance records"""
         return db.get_student_attendance(self.id)
     
     def get_fees(self):

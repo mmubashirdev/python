@@ -1,0 +1,132 @@
+import pyodbc
+import tkinter as tk
+from tkinter import messagebox
+
+con = pyodbc.connect(
+    "Driver={ODBC Driver 17 for SQL Server};"
+    r"Server={localhost\MSSQLSERVER01};"
+    "trusted_connection=yes;",
+    autocommit=True
+)
+cursor = con.cursor()
+
+cursor.execute("IF DB_ID('store_db') IS NULL CREATE DATABASE store_db;")
+cursor.execute("USE store_db;")
+
+cursor.execute("""
+IF OBJECT_ID('products') IS NULL
+CREATE TABLE products(
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    name NVARCHAR(50),
+    quantity INT,
+    price FLOAT
+);
+""")
+con.commit()
+
+
+# ------------------------------------
+# CRUD FUNCTIONS
+# ------------------------------------
+
+def add_product():
+    name = entry_name.get()
+    qty = entry_quantity.get()
+    price = entry_price.get()
+
+    if name == "" or qty == "" or price == "":
+        messagebox.showerror("Error", "All fields are required")
+        return
+
+    cursor.execute("INSERT INTO products(name, quantity, price) VALUES (?, ?, ?)",
+                   (name, qty, price))
+    con.commit()
+    messagebox.showinfo("Success", "Product added successfully!")
+
+
+def view_products():
+    cursor.execute("SELECT * FROM products")
+    rows = cursor.fetchall()
+
+    result = ""
+    for r in rows:
+        result += f"ID: {r[0]} | Name: {r[1]} | Qty: {r[2]} | Price: {r[3]}\n"
+
+    if result == "":
+        result = "No products found."
+
+    messagebox.showinfo("Product List", result)
+
+
+def update_product():
+    try:
+        pid = int(entry_id.get())
+    except:
+        messagebox.showerror("Error", "Enter valid Product ID")
+        return
+
+    cursor.execute("""
+        UPDATE products
+        SET name=?, quantity=?, price=?
+        WHERE id=?;
+    """, (entry_name.get(), entry_quantity.get(), entry_price.get(), pid))
+    con.commit()
+
+    messagebox.showinfo("Success", "Product updated successfully!")
+
+
+def delete_product():
+    try:
+        pid = int(entry_id.get())
+    except:
+        messagebox.showerror("Error", "Enter valid Product ID")
+        return
+
+    cursor.execute("DELETE FROM products WHERE id=?", (pid,))
+    con.commit()
+    messagebox.showinfo("Success", "Product deleted successfully!")
+
+
+root = tk.Tk()
+root.title("Product Management System")
+root.geometry("500x400")
+
+# -------------------------
+# LABELS + INPUT FIELDS
+# -------------------------
+label_id = tk.Label(root, text="Product ID (For Update/Delete)")
+label_id.grid(row=0, column=0, padx=10, pady=10)
+entry_id = tk.Entry(root)
+entry_id.grid(row=0, column=1)
+
+label_name = tk.Label(root, text="Product Name")
+label_name.grid(row=1, column=0, padx=10, pady=10)
+entry_name = tk.Entry(root)
+entry_name.grid(row=1, column=1)
+
+label_quantity = tk.Label(root, text="Quantity")
+label_quantity.grid(row=2, column=0, padx=10, pady=10)
+entry_quantity = tk.Entry(root)
+entry_quantity.grid(row=2, column=1)
+
+label_price = tk.Label(root, text="Price")
+label_price.grid(row=3, column=0, padx=10, pady=10)
+entry_price = tk.Entry(root)
+entry_price.grid(row=3, column=1)
+
+# -------------------------
+# BUTTONS
+# -------------------------
+btn_add = tk.Button(root, text="Add Product", width=15, command=add_product)
+btn_add.grid(row=4, column=0, padx=10, pady=10)
+
+btn_view = tk.Button(root, text="View Products", width=15, command=view_products)
+btn_view.grid(row=4, column=1, padx=10, pady=10)
+
+btn_update = tk.Button(root, text="Update Product", width=15, command=update_product)
+btn_update.grid(row=5, column=0, padx=10, pady=10)
+
+btn_delete = tk.Button(root, text="Delete Product", width=15, command=delete_product)
+btn_delete.grid(row=5, column=1, padx=10, pady=10)
+
+root.mainloop()

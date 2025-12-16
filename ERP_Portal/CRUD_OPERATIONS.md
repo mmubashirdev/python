@@ -9,6 +9,7 @@
 ## 1. STUDENTS TABLE - Complete CRUD Operations
 
 ### CREATE (Add Student)
+
 ```python
 def add_student(name, grade, password)
     - Creates new student record in database
@@ -17,21 +18,23 @@ def add_student(name, grade, password)
 ```
 
 ### READ (Retrieve Students)
+
 ```python
 def get_student(student_id)
     - Retrieve single student by ID
-    
+
 def get_all_students()
     - Retrieve all students from database
-    
+
 def get_student_by_name(name)
     - Retrieve student by name
-    
+
 def verify_login(name, password)
     - Authenticate student login
 ```
 
 ### UPDATE (Modify Student)
+
 ```python
 def update_student(student_id, name, grade, password)
     - Update student information
@@ -39,6 +42,7 @@ def update_student(student_id, name, grade, password)
 ```
 
 ### DELETE (Remove Student)
+
 ```python
 def delete_student(student_id)
     - Delete student record
@@ -52,6 +56,7 @@ def delete_student(student_id)
 ## 2. TEACHERS TABLE - Complete CRUD Operations
 
 ### CREATE (Add Teacher)
+
 ```python
 def add_teacher(name, subject)
     - Creates new teacher record
@@ -59,12 +64,14 @@ def add_teacher(name, subject)
 ```
 
 ### READ (Retrieve Teachers)
+
 ```python
 def get_all_teachers()
     - Retrieve all teachers from database
 ```
 
 ### UPDATE (Modify Teacher)
+
 ```python
 def update_teacher(teacher_id, name, subject)
     - Update teacher information
@@ -72,6 +79,7 @@ def update_teacher(teacher_id, name, subject)
 ```
 
 ### DELETE (Remove Teacher)
+
 ```python
 def delete_teacher(teacher_id)
     - Delete teacher record
@@ -84,6 +92,7 @@ def delete_teacher(teacher_id)
 ## 3. ATTENDANCE TABLE - Complete CRUD Operations
 
 ### CREATE (Add Attendance)
+
 ```python
 def add_attendance(student_id, date, status)
     - Records student attendance
@@ -92,6 +101,7 @@ def add_attendance(student_id, date, status)
 ```
 
 ### READ (Retrieve Attendance)
+
 ```python
 def get_student_attendance(student_id)
     - Get all attendance records for a student
@@ -99,6 +109,7 @@ def get_student_attendance(student_id)
 ```
 
 ### UPDATE (Modify Attendance)
+
 ```python
 def update_attendance(attendance_id, status)
     - Update attendance status
@@ -106,6 +117,7 @@ def update_attendance(attendance_id, status)
 ```
 
 ### DELETE (Remove Attendance)
+
 ```python
 def delete_attendance(attendance_id)
     - Delete attendance record
@@ -118,6 +130,7 @@ def delete_attendance(attendance_id)
 ## 4. FEES TABLE - Complete CRUD Operations
 
 ### CREATE (Add Fee)
+
 ```python
 def add_fee(student_id, amount, status)
     - Creates fee record for student
@@ -126,12 +139,14 @@ def add_fee(student_id, amount, status)
 ```
 
 ### READ (Retrieve Fees)
+
 ```python
 def get_student_fees(student_id)
     - Get all fee records for a student
 ```
 
 ### UPDATE (Modify Fee)
+
 ```python
 def update_fee(fee_id, amount, status)
     - Update fee information
@@ -139,6 +154,7 @@ def update_fee(fee_id, amount, status)
 ```
 
 ### DELETE (Remove Fee)
+
 ```python
 def delete_fee(fee_id)
     - Delete fee record
@@ -151,6 +167,7 @@ def delete_fee(fee_id)
 ## 5. PERFORMANCE TABLE - Complete CRUD Operations
 
 ### CREATE (Add Performance)
+
 ```python
 def add_performance(student_id, subject, marks)
     - Records student performance
@@ -159,12 +176,14 @@ def add_performance(student_id, subject, marks)
 ```
 
 ### READ (Retrieve Performance)
+
 ```python
 def get_student_performance(student_id)
     - Get all performance records for a student
 ```
 
 ### UPDATE (Modify Performance)
+
 ```python
 def update_performance(performance_id, subject, marks)
     - Update performance record
@@ -172,6 +191,7 @@ def update_performance(performance_id, subject, marks)
 ```
 
 ### DELETE (Remove Performance)
+
 ```python
 def delete_performance(performance_id)
     - Delete performance record
@@ -184,6 +204,7 @@ def delete_performance(performance_id)
 ## Advanced Features Implemented
 
 ### GPA Calculation
+
 ```python
 def calculate_student_gpa(student_id)
     - Calculates GPA from average marks
@@ -192,6 +213,7 @@ def calculate_student_gpa(student_id)
 ```
 
 ### Performance Reports
+
 ```python
 def get_performance_report(student_id)
     - Generates comprehensive report including:
@@ -209,6 +231,7 @@ def get_performance_report(student_id)
 Each OOP class wraps database operations with object-oriented interface:
 
 ### Student Class
+
 ```python
 save()           # CREATE/UPDATE
 delete()         # DELETE
@@ -223,6 +246,7 @@ get_performance()# READ
 ```
 
 ### Teacher Class
+
 ```python
 save()           # CREATE/UPDATE
 delete()         # DELETE
@@ -230,6 +254,7 @@ delete()         # DELETE
 ```
 
 ### Performance Class
+
 ```python
 save()           # CREATE/UPDATE
 delete()         # DELETE
@@ -238,6 +263,7 @@ get_grade()      # Calculate letter grade
 ```
 
 ### Attendance Class
+
 ```python
 save()           # CREATE/UPDATE
 delete()         # DELETE
@@ -245,6 +271,7 @@ delete()         # DELETE
 ```
 
 ### Fee Class
+
 ```python
 save()           # CREATE/UPDATE
 delete()         # DELETE
@@ -253,6 +280,7 @@ delete()         # DELETE
 ```
 
 ### School Class (Factory/Manager)
+
 ```python
 initialize()                    # Setup
 add_student()                   # CREATE
@@ -274,25 +302,30 @@ generate_performance_report()   # Advanced Report
 ## GUI CRUD Implementation
 
 ### Student CRUD (ERP_GUI.py)
+
 - ✅ Add Student (CREATE)
 - ✅ View All Students (READ)
 - ✅ Delete Student (DELETE)
 - ✅ Login/Authenticate (READ)
 
 ### Teacher CRUD
+
 - ✅ Add Teacher (CREATE)
 - ✅ View All Teachers (READ)
 - ✅ Delete Teacher (DELETE)
 
 ### Attendance CRUD
+
 - ✅ Add Attendance (CREATE)
 - ✅ View Attendance (READ)
 
 ### Fee CRUD
+
 - ✅ Add Fee (CREATE)
 - ✅ View Fees (READ)
 
 ### Performance CRUD
+
 - ✅ Add Performance (CREATE)
 - ✅ View Performance (READ)
 - ✅ Calculate Grade (READ + Calculate)
@@ -340,6 +373,7 @@ Performance (4 CRUD Operations)
 ### Total Unit Tests: 20+
 
 **Student Operations:** 5 tests
+
 - ✅ test_add_student_success
 - ✅ test_verify_login_success
 - ✅ test_verify_login_failure
@@ -347,35 +381,42 @@ Performance (4 CRUD Operations)
 - ✅ test_delete_student_with_cascade
 
 **Teacher Operations:** 3 tests
+
 - ✅ test_add_teacher_success
 - ✅ test_get_all_teachers
 - ✅ test_update_teacher
 
 **Performance Operations:** 4 tests
+
 - ✅ test_add_performance_record
 - ✅ test_calculate_student_gpa
 - ✅ test_get_student_performance
 - ✅ test_performance_grading
 
 **Attendance Operations:** 2 tests
+
 - ✅ test_add_attendance_record
 - ✅ test_get_student_attendance
 
 **Fee Operations:** 3 tests
+
 - ✅ test_add_fee_record
 - ✅ test_get_student_fees
 - ✅ test_update_fee_status
 
 **Report Generation:** 1 test
+
 - ✅ test_performance_report_generation
 
 **School Management:** 3 tests
+
 - ✅ test_student_gpa_calculation
 - ✅ test_performance_statistics
 - ✅ test_attendance_percentage_calculation
 - ✅ test_fee_collection_summary
 
 **Data Integrity:** 3 tests
+
 - ✅ test_cascade_delete_on_student_deletion
 - ✅ test_marks_range_validation
 - ✅ test_fee_amount_positive_value
@@ -384,14 +425,14 @@ Performance (4 CRUD Operations)
 
 ## CRUD Operations Statistics
 
-| Entity | CREATE | READ | UPDATE | DELETE | Total |
-|--------|--------|------|--------|--------|-------|
-| Students | 1 | 4 | 1 | 1 | **7** |
-| Teachers | 1 | 1 | 1 | 1 | **4** |
-| Attendance | 1 | 1 | 1 | 1 | **4** |
-| Fees | 1 | 1 | 1 | 1 | **4** |
-| Performance | 1 | 1 | 1 | 1 | **4** |
-| **TOTAL** | **5** | **8** | **5** | **5** | **23** |
+| Entity      | CREATE | READ  | UPDATE | DELETE | Total  |
+| ----------- | ------ | ----- | ------ | ------ | ------ |
+| Students    | 1      | 4     | 1      | 1      | **7**  |
+| Teachers    | 1      | 1     | 1      | 1      | **4**  |
+| Attendance  | 1      | 1     | 1      | 1      | **4**  |
+| Fees        | 1      | 1     | 1      | 1      | **4**  |
+| Performance | 1      | 1     | 1      | 1      | **4**  |
+| **TOTAL**   | **5**  | **8** | **5**  | **5**  | **23** |
 
 ---
 
@@ -415,6 +456,7 @@ python -m unittest unitTestStud.py -v
 ```
 
 Expected Output:
+
 ```
 test_add_attendance_record ... ok
 test_add_fee_record ... ok
@@ -453,6 +495,7 @@ OK
 ✅ **Complete CRUD Implementation Status: 100%**
 
 All requirements met:
+
 - ✅ 23 CRUD operations implemented
 - ✅ 5 database tables with proper relationships
 - ✅ Complete OOP implementation with 6 classes
